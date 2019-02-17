@@ -1,4 +1,6 @@
 import express from "express";
+import morgan from "morgan";
+import helmet from "helmet";
 const app = express();
 const PORT = 4000;
 
@@ -10,6 +12,8 @@ const betweenHome = (req,res,next)=> {
     next();
 };
 
+app.use(helmet()); // 보안을 위해 사용 하는 미들웨어
+app.use(morgan("tiny")); // logger 역할을 하는 미들웨어
 app.use(betweenHome); // 모든 라우터에 적용
 
 app.get('/', handleHome);
