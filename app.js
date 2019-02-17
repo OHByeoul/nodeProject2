@@ -3,11 +3,11 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import {userRouter} from "./router"; //전체를 export 한게 아니라 userRouter만 export한것
 
 const app = express();
-const PORT = 4000;
 
-const listening = ()=>console.log(`listening now : ${PORT}`);
+
 const handleHome = (req,res)=>res.send('Hello hi');
 const handleA = (req,res)=>res.send('a hii');
 const betweenHome = (req,res,next)=> {
@@ -26,4 +26,6 @@ app.get('/', handleHome);
 
 app.get('/a', handleA);
 
-app.listen(PORT, listening);
+app.use("/user", userRouter);
+
+export default app; // somebody import my file i give him app object
