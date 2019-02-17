@@ -1,11 +1,10 @@
-const express = require("express");
+import express from "express";
 const app = express();
 const PORT = 4000;
 
-app.get('/', function getHome(req,res) {  
-    res.send('Hello');
-});
+const listening = ()=>console.log(`listening now : ${PORT}`);
+const handleHome = (req,res)=>res.send('Hello hi');
 
-app.listen(PORT, function listening() {  
-    console.log(`listening now : ${PORT}`);
-});
+app.get('/', handleHome);
+
+app.listen(PORT, listening);
