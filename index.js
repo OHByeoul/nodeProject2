@@ -6,7 +6,7 @@ const PORT = 4000;
 
 const listening = ()=>console.log(`listening now : ${PORT}`);
 const handleHome = (req,res)=>res.send('Hello hi');
-const handleA = (req,res)=>res.send('a hi');
+const handleA = (req,res)=>res.send('a hii');
 const betweenHome = (req,res,next)=> {
     console.log("between");
     next();
