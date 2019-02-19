@@ -9,6 +9,7 @@ import globalRouter from "./routers/globalRouter";
 import routes from "./routes";
 const app = express();
 
+app.set("view engine", "pug");
 app.use(cookieParser()); // session을 다루기 위한 미들웨어
 app.use(bodyParser.json()); // 서버로부터 오는 값을 받기 위한 미들웨어
 app.use(bodyParser.urlencoded({extended : true})); // 서버로부터 오는 값을 받기 위한 미들웨어
