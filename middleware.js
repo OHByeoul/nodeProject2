@@ -1,8 +1,11 @@
-import app from "./app";
 import routes from "./routes";
 
 export const localsMiddleware = (req,res,next)=>{
-    app.locals.siteName = "OhTube";
-    app.locals.routes = routes;
+    res.locals.siteName = "OhTube";
+    res.locals.routes = routes;
+    res.locals.user = {
+        isAuthenticated : true,
+        id : 1
+    }
     next();
 };
