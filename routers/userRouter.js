@@ -7,6 +7,6 @@ const userRouter = express.Router(); //전체를 export 한게 아니라 userRou
 userRouter.get(routes.home, (req,res)=>res.send("users"));
 userRouter.get(routes.editProfile, editProfile);
 userRouter.get(routes.changePassword, changePassword);
-userRouter.get(routes.userDetail, userDetail);
+userRouter.get(routes.userDetail(), userDetail);
 
 export default userRouter;
