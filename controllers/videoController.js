@@ -8,7 +8,6 @@ export const home = async(req, res) => {
         console.log(error);
         res.render("home", { pageTitle: "home", videos: []}); 
     }
-    
 }
 export const search = (req,res) => {
     //const searchingBy = req.query.term;
@@ -18,12 +17,20 @@ export const search = (req,res) => {
 export const getUpload = (req,res) => 
     res.render("upload", {pageTitle : "upload"});
 
-export const postUpload = (req,res) => {
+export const postUpload = async (req,res) => {
     const {
-        body : {file, title, description}
+       body: {title, description},
+       file: {path}
     } = req;
-    //todo : 업로드 및 비디오 저장
-    res.redirect(routes.videoDetail(123123));
+    const newVideo = await Video.create({
+        fileUrl: path,
+        title: title,
+        description: description
+    })
+
+
+    //res.render("upload", {pageTitle : "upload"});
+    res.redirect(routes.videoDetail(newVideo.id))
 }
 
 export const videoDetail = (req,res) => res.render("videoDetail", {pageTitle : "videoDetail"});
