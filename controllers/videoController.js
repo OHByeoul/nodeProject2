@@ -40,7 +40,7 @@ export const videoDetail = async (req,res) => {
     console.log(req.params)
     try {
         const video = await Video.findById(id);
-        res.render("videoDetail", {pageTitle : "videoDetail", video})
+        res.render("videoDetail", {pageTitle : video.title, video})
     } catch(error){
         res.redirect(routes.home);
     }
@@ -69,4 +69,15 @@ export const postEditVideo = async (req,res) => {
     }
 }
 
-export const deleteVideo = (req,res) => res.render("deleteVideo", {pageTitle : "deleteVideo"});
+export const deleteVideo = async (req,res) => {
+    const {
+        params: {id}
+    } = req
+    try {
+        await Video.findOneAndDelete({_id : id})
+        res.redirect(routes.home)
+    } catch(error) {
+        res.redirect(routes.home)
+    }
+
+}
