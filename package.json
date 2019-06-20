@@ -11,6 +11,8 @@
     "@babel/preset-env": "^7.3.1",
     "cookie-parser": "^1.4.4",
     "dotenv": "^6.2.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "express": "^4.16.4",
     "helmet": "^3.15.1",
     "mongoose": "^5.6.0",
@@ -22,6 +24,7 @@
     "start": "nodemon --exec babel-node init.js --delay2 "
   },
   "devDependencies": {
+    "eslint": "^5.16.0",
     "nodemon": "^1.18.10"
   }
 }
