@@ -30,7 +30,7 @@ const routes = {
             return `/users/${id}`;
         } else {
             return USER_DETAIL;
-        }
+        } 
     },
     editProfile : EDIT_PROFILE,
     changePassword : CHANGE_PASSWORD,
@@ -43,7 +43,13 @@ const routes = {
             return VIDEO_DETAIL;
         }
     },
-    editVideo : EDIT_VIDEO,
+    editVideo : id =>{
+        if(id){
+            return `/videos/${id}/edit`
+        } else {
+            return EDIT_VIDEO
+        }
+    },
     deleteVideo : DELETE_VIDEO
 };
 
